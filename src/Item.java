@@ -1,3 +1,4 @@
+// This class represents an item with properties like 'itemID','name, 'description' and 'price'.
 
 public class Item {
 	private String itemID;
@@ -5,6 +6,7 @@ public class Item {
 	private String description;
 	private double price;
 	
+//construct an item with specified details.	
 	public Item(String itemID, String name, String Description, double price) {
 		this.itemID = itemID;
 		this.name = name;
@@ -12,7 +14,8 @@ public class Item {
 		this.price = price;
 		
 	}
-	
+
+//getters for item properties
 	public String getItemID() {
 		return itemID;
 	

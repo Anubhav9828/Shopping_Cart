@@ -1,10 +1,21 @@
+/*This class manages the shopping cart operations such as adding items, 
+*updating quantities, deleting items, and calculating the total value.
+*/
+
 import java.util.ArrayList;
 
 public class ShoppingCart {
 	private ArrayList<CartItem> cartItems;
+	
+	//Construct an empty ShoppingCart.
+	
 	public ShoppingCart() {
 		cartItems = new ArrayList<>();
 	}
+	
+	/*Add an item to the shopping cart with the specified quantity.
+	*If the item already exists in the cart, its quantity is updated.
+	*/
 	
 	public void addItem(Item item, int quantity) {
 		for(CartItem cartItem : cartItems) {
@@ -16,6 +27,8 @@ public class ShoppingCart {
 		cartItems.add(new CartItem(item,quantity));
 	}
 	
+	// updates the quantity of an existing item in the shopping cart.
+	
 	public void updateItemQuantity(String itemID, int quantity) {
 		for(CartItem cartItem : cartItems) {
 			if(cartItem.getItem().getItemID().equals(itemID)) {
@@ -25,15 +38,23 @@ public class ShoppingCart {
 		}
 	}
 	
+	// Removes an item from the shopping cart based on its unique identifier.
+	
 	public void removeItem(String itemID) {
 		cartItems.removeIf(cartItem -> cartItem.getItem().getItemID().equals(itemID));
 	}
+	
+	/*Displays all items in the shopping cart along with their quantities and total 
+	 * prices.
+	 */ 
 	
 	public void showCart() {
 		for (CartItem cartItem : cartItems) {
 			System.out.println(cartItem);
 		}
 	}
+	
+	// Calculate the total value of the items in the shopping cart.
 	
 	public double getTotalValue() {
 		double total = 0;
@@ -43,6 +64,8 @@ public class ShoppingCart {
 		return total;
 		
 	}
+	
+	// Main method for testing the ShoppingCart functionality.
 	
 	public static void main(String[] args) {
 		ShoppingCart cart = new ShoppingCart();
